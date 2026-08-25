@@ -1,6 +1,0 @@
-# Configs such as db connection Configs
-This folder holds all environment-specific settings. Instead of scattering process.env calls across your codebase, you import a single config object.
-
-index.js – Reads .env variables, validates them (consider using a library like envalid or zod), and exports a frozen config object.
-database.js – Database connection logic (MongoDB, PostgreSQL, etc.).
-logger.js – Logger setup (Winston, Pino, or similar).
