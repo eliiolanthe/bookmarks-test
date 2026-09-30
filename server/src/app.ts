@@ -1,3 +1,4 @@
+// app.js creates and configures the Express application (middleware, routes, error handler) and exports it.
 import express from "express";
 import cors from "cors";
 import router from "./routes";

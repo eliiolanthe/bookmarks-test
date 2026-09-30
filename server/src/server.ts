@@ -1,5 +1,6 @@
-import app from './app';
-import dotenv from 'dotenv';
+//server.js imports the app, connects to the database, and calls app.listen().
+import app from "./app";
+import dotenv from "dotenv";
 
 dotenv.config();
 
