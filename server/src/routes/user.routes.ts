@@ -1,12 +1,14 @@
 // src/routes/user.routes.js
 import { Router } from "express";
-import { getUser, updateUser } from "../controllers/user.controller.js";
-import { authenticate } from "../middleware/auth.js";
-import { validateUpdateUser } from "../validators/user.validator.js";
+import { getUser } from "../controllers/user.controller.ts";
+// import { authenticate } from "../middleware/auth.js";
+// import { validateUpdateUser } from "../validators/user.validator.js";
 
-const router = Router();
+const userRouter = Router();
 
-router.get("/:id", authenticate, getUser);
-router.patch("/:id", authenticate, validateUpdateUser, updateUser);
+userRouter.get("/:id", getUser);
+//router.get("/:id", authenticate, getUser);
 
-export default router;
+//router.patch("/:id", authenticate, validateUpdateUser, updateUser);
+
+export default userRouter;
