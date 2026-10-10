@@ -6,10 +6,14 @@
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "build": "npm run build --prefix server && npm run build --prefix client",
     "install:all": "npm install && npm install --prefix client && npm install --prefix server",
-    "lint": "npm run lint --prefix client && npm run lint --prefix server"
+    "lint": "npm run lint --prefix client && npm run lint --prefix server",
+    "lint:fix": "npm run lint:fix --prefix client && npm run lint:fix --prefix server",
+    "prepare": "husky"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
     "oxfmt": "^0.71.0",
     "oxlint": "^1.86.0",
     "typescript": "7.0.2"
