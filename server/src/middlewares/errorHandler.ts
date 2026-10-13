@@ -1,8 +1,22 @@
-// handle errors
-/*
-const errorHandler = (err, req, res, next) => {
-    res.status(err.status || 500).json({ message: err.message || "Server Error" });
-};
+import { NextFunction, Request, Response } from "express";
 
-module.exports = errorHandler;
-*/
+export class AppError extends Error {
+  constructor(
+    public readonly status: number,
+    message: string,
+  ) {
+    super(message);
+    this.name = "AppError";
+  }
+}
+
+export function errorHandler(err: unknown, _req: Request, res: Response, _next: NextFunction) {
+  const status = err instanceof AppError ? err.status : 500;
+  const message = err instanceof Error ? err.message : "Server Error";
+
+  if (status >= 500) {
+    console.error(err);
+  }
+
+  res.status(status).json({ message });
+}
